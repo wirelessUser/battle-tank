@@ -109,7 +109,7 @@ public class EnemyBehaviourChaseAndPatrol : MonoBehaviour, IGetComponentsInAwake
             tankView.PlayParticleTrailEffect(false);
         }
         
-        Debug.Log($"From Patrol** Distace B/W = {Vector3.Distance(transform.position, playerTarget.position)}");
+      //  Debug.Log($"From Patrol** Distace B/W = {Vector3.Distance(transform.position, playerTarget.position)}");
     }
 
     private void SetNewDestinationPointForEnemy()
@@ -127,7 +127,7 @@ public class EnemyBehaviourChaseAndPatrol : MonoBehaviour, IGetComponentsInAwake
         NavMeshHit hit;
         
         NavMesh.SamplePosition(dir, out hit, randomRadius, -1);
-       // Debug.Log($"hit = {hit.position}");
+        Debug.Log($"hit = {hit.position}");
        // Debug.Log($"hit/2 = {hit.position/2}");
         cubeLocator.transform.position = hit.position;
         navMeshAgent.SetDestination(hit.position);
@@ -153,15 +153,13 @@ public class EnemyBehaviourChaseAndPatrol : MonoBehaviour, IGetComponentsInAwake
         {
             enemyStates = EnemyStates.Patrol;
             navMeshAgent.speed = patrolSpeed;
-            //reset patrol timer If it containsa Some differnt valu before going to The chase state ..
-
-            patrolTimer = idlePatrolTime;
+           // reset patrol timer If it containsa Some differnt valu before going to The chase state..patrolTimer = idlePatrolTime;
             if (chasingDistance != currentChaseDistance)
             {
                 chasingDistance = currentChaseDistance;
             }
         }
-        Debug.Log($"From Chase** Distace B/W = {Vector3.Distance(transform.position, playerTarget.position)}");
+      //  Debug.Log($"From Chase** Distace B/W = {Vector3.Distance(transform.position, playerTarget.position)}");
     }
 
 
@@ -183,10 +181,10 @@ public class EnemyBehaviourChaseAndPatrol : MonoBehaviour, IGetComponentsInAwake
             attackTimer = 0;
             
         }
-        Debug.Log($"From Attack** Distace B/W = {Vector3.Distance(transform.position, playerTarget.position)}");
+       // Debug.Log($"From Attack** Distace B/W = {Vector3.Distance(transform.position, playerTarget.position)}");
         if (Vector3.Distance(transform.position, playerTarget.position) >= AttackDistance + 10) 
         {
-            Debug.Log($"From Attack** Distace B/W = {Vector3.Distance(transform.position, playerTarget.position)}");
+           // Debug.Log($"From Attack** Distace B/W = {Vector3.Distance(transform.position, playerTarget.position)}");
             enemyStates = EnemyStates.Chase;
         }
 
@@ -196,7 +194,7 @@ public class EnemyBehaviourChaseAndPatrol : MonoBehaviour, IGetComponentsInAwake
     {
         transform.LookAt(playerTarget);
 
-        Debug.Log($"********Shotting************");
+      //  Debug.Log($"********Shotting************");
         enemyShootingBehaviour.ShootBullet();
     }
 }//class...

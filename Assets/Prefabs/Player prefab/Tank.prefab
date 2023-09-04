@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 494888694592894950}
   - component: {fileID: 983365834876652842}
   - component: {fileID: 4550981534593366611}
-  - component: {fileID: 6176774232419956144}
   - component: {fileID: 4671388880557780740}
   m_Layer: 0
   m_Name: Main Camera
@@ -126,19 +125,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804628229612247497}
   m_Enabled: 1
---- !u!114 &6176774232419956144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804628229612247497}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: d2b82a52b13b9014d988055d0b2f939e, type: 2}
 --- !u!114 &4671388880557780740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +149,6 @@ GameObject:
   - component: {fileID: 5143670583141230776}
   - component: {fileID: 6693949049577963851}
   - component: {fileID: 353758140466061994}
-  - component: {fileID: 8866541895227419667}
   - component: {fileID: 3595375147224405633}
   m_Layer: 0
   m_Name: FP Camera
@@ -246,19 +231,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5084345797384426500}
   m_Enabled: 1
---- !u!114 &8866541895227419667
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5084345797384426500}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: d2b82a52b13b9014d988055d0b2f939e, type: 2}
 --- !u!114 &3595375147224405633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +377,8 @@ GameObject:
   - component: {fileID: 7163644544768581281}
   - component: {fileID: -2430727540742116032}
   - component: {fileID: 1753715888}
+  - component: {fileID: 2452126956664814004}
+  - component: {fileID: -3065484967352945226}
   m_Layer: 6
   m_Name: Tank
   m_TagString: Untagged
@@ -474,8 +448,42 @@ MonoBehaviour:
   dataSo: {fileID: 11400000, guid: 33f106d8db38bbd4397e6df413ecdf98, type: 2}
   mainCam: {fileID: 0}
   rb: {fileID: -2430727540742116032}
-  bulletSpawner: {fileID: 0}
+  bulletSpawner: {fileID: 2406674086267379875, guid: 8e68e04947fd93d4e83f27dac617d238,
+    type: 3}
   spawnPoint: {fileID: 2119818717}
+  shootingBehaviour: {fileID: 2452126956664814004}
+--- !u!114 &2452126956664814004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5170878431976608312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87ccfa65f31cd204ba0c99c139569931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 2119818717}
+  bulletPrefab: {fileID: 5222268808196272008, guid: 923ae6cba78833d419b05afe5f9f15af,
+    type: 3}
+  bulletSpawner: {fileID: 2406674086267379875, guid: 8e68e04947fd93d4e83f27dac617d238,
+    type: 3}
+--- !u!114 &-3065484967352945226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5170878431976608312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8656ebfe16b82140a7bf1256943a137, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 151086, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}
+  maxHealth: 19.1
+  currentHealth: 0
 --- !u!1 &5170878431976608314
 GameObject:
   m_ObjectHideFlags: 0

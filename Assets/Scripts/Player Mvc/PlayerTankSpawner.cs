@@ -14,16 +14,12 @@ public class PlayerTankSpawner : MonoBehaviour
 
         SpawnTank();
     }
-    void Start()
-    {
-        
-    }
 
    
     public void SpawnTank()
     {
         PlayerTankModel tankModel = new PlayerTankModel();
-        ///PlayerTankModel tankModel = new PlayerTankModel();
+     
         PlayerTankController tankController = new PlayerTankController();
 
         tankController.PlayerTankControllerSetting(tankModel, tankView);

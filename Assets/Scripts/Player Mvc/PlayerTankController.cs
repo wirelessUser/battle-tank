@@ -11,7 +11,7 @@ public class PlayerTankController
 
     public void PlayerTankControllerSetting(PlayerTankModel _model, PlayerTankView _view)
     {
-        Debug.Log("Inside the **PlayerTankControllerSetting ");
+       // Debug.Log("Inside the **PlayerTankControllerSetting ");
         model = _model;
         view = _view;
         rb = view.ReturnRb();

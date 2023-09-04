@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 750340465}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7095686536639950487}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Right Dust Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1690553487729814364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Left Dust Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 6154418042008020225}
   - component: {fileID: 6154418042006725971}
   - component: {fileID: 6154418042005727123}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankChassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +195,8 @@ GameObject:
   - component: {fileID: -2346967159747863013}
   - component: {fileID: 547396915}
   - component: {fileID: 6217432239092033594}
-  m_Layer: 0
+  - component: {fileID: -7098515408151798390}
+  m_Layer: 6
   m_Name: BigEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,13 +241,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6154418042007927011}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 10
+  m_Drag: 15
+  m_AngularDrag: 15
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &-7696802979863906250
 MonoBehaviour:
@@ -289,7 +290,7 @@ MonoBehaviour:
   PatrolMinRadius: 10
   patrolMaxradius: 20
   patrolTimer: 0
-  idlePatrolTime: 20
+  idlePatrolTime: 10
   tankView: {fileID: 0}
   enemyShootingBehaviour: {fileID: 6217432239092033594}
 --- !u!195 &547396915
@@ -328,9 +329,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawner: {fileID: 2406674086267379875, guid: 8e68e04947fd93d4e83f27dac617d238,
     type: 3}
-  SpawnPoint: {fileID: 750340465}
-  bulletPrefab: {fileID: 8911913802626235571, guid: 17d6351d4bb2e3541a0b55fde77b9291,
-    type: 3}
+  spawnPoint: {fileID: 750340465}
+--- !u!114 &-7098515408151798390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154418042007927011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f6339053452bdc48998f0ca005d631d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 151086, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &6154418042007927013
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +356,7 @@ GameObject:
   - component: {fileID: 6154418042008020229}
   - component: {fileID: 6154418042006725979}
   - component: {fileID: 6154418042005727131}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +440,7 @@ GameObject:
   - component: {fileID: 6154418042008020231}
   - component: {fileID: 6154418042006725973}
   - component: {fileID: 6154418042005727125}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTracksLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,7 +524,7 @@ GameObject:
   - component: {fileID: 6154418042008020235}
   - component: {fileID: 6154418042006725969}
   - component: {fileID: 6154418042005727121}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +606,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6154418042008020239}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TankRenderers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,6 +645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DustTrail
       objectReference: {fileID: 0}
+    - target: {fileID: 148586, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -649,19 +667,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70710737
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071062
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000022351742
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000007038021
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -706,6 +724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DustTrail
       objectReference: {fileID: 0}
+    - target: {fileID: 148586, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -724,19 +746,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.70710737
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071062
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000022351742
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00000007038021
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 496482, guid: f7167ad2844254441b40b8a300b4f1fe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
