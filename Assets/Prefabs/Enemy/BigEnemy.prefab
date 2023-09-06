@@ -192,10 +192,13 @@ GameObject:
   - component: {fileID: 6752226188300848252}
   - component: {fileID: 6752226188300848254}
   - component: {fileID: -7696802979863906250}
-  - component: {fileID: -2346967159747863013}
   - component: {fileID: 547396915}
   - component: {fileID: 6217432239092033594}
   - component: {fileID: -7098515408151798390}
+  - component: {fileID: 843345636}
+  - component: {fileID: 843345640}
+  - component: {fileID: 843345639}
+  - component: {fileID: 843345638}
   m_Layer: 6
   m_Name: BigEnemy
   m_TagString: Untagged
@@ -264,35 +267,15 @@ MonoBehaviour:
   dustTrailEffects:
   - {fileID: 5752425003096511540}
   - {fileID: 4733063501596196177}
---- !u!114 &-2346967159747863013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6154418042007927011}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d963de9cdf5f8b046b0b1cf0ba681022, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTarget: {fileID: 0}
-  enemyStates: 0
-  patrolSpeed: 10
-  chaseSpeed: 12
-  chasingDistance: 20
-  attackDistance: 10
-  currentChaseDistance: 0
-  AttackDistance: 5
-  chaseAfterAtackDistance: 2
-  attackTimer: 0
-  idleAttackTimeGap: 5
-  PatrolMinRadius: 10
-  patrolMaxradius: 20
-  patrolTimer: 0
-  idlePatrolTime: 10
-  tankView: {fileID: 0}
-  enemyShootingBehaviour: {fileID: 6217432239092033594}
+  myRenderer:
+  - {fileID: 6154418042005727123}
+  - {fileID: 6154418042005727125}
+  - {fileID: 6154418042005727131}
+  - {fileID: 6154418042005727121}
+  currentState: {fileID: 843345640}
+  patrollingState: {fileID: 843345640}
+  chasingState: {fileID: 843345639}
+  attackState: {fileID: 843345638}
 --- !u!195 &547396915
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -345,6 +328,95 @@ MonoBehaviour:
   explosionPrefab: {fileID: 151086, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}
   maxHealth: 100
   currentHealth: 0
+--- !u!95 &843345636
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154418042007927011}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac40d3cd648ee7e43a5de48a6a7fc7c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &843345640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154418042007927011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f05af70c793fa45a10b2d5c50dc964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 1, g: 0, b: 0, a: 0}
+  playerTransform: {fileID: 0}
+  enemyStates: 0
+  attackDistance: 5
+  chaseAfterAtackDistance: 2
+  tankView: {fileID: -7696802979863906250}
+  PatrolMinRadius: 20
+  patrolMaxradius: 60
+  patrolTimer: 0
+  idlePatrolTime: 20
+  chasingDistance: 15
+  currentChaseDistance: 0
+  patrolSpeed: 10
+--- !u!114 &843345639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154418042007927011}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1638560e55c495b4a88da4ce86e4e119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0.13166365, g: 1, b: 0.0141509175, a: 0}
+  playerTransform: {fileID: 0}
+  enemyStates: 1
+  attackDistance: 5
+  chaseAfterAtackDistance: 2
+  tankView: {fileID: -7696802979863906250}
+  chaseSpeed: 10
+  chasingDistance: 15
+  currentChaseDistance: 15
+  patrolSpeed: 10
+--- !u!114 &843345638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6154418042007927011}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c0fc2e95518ce34b9800fa2d5ae4063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0.0323627, b: 1, a: 0}
+  playerTransform: {fileID: 0}
+  enemyStates: 2
+  attackDistance: 5
+  chaseAfterAtackDistance: 2
+  tankView: {fileID: -7696802979863906250}
+  attackTimer: 0
+  idleAttackTimeGap: 5
+  enemyShootingBehaviour: {fileID: 0}
 --- !u!1 &6154418042007927013
 GameObject:
   m_ObjectHideFlags: 0

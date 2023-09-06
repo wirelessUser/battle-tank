@@ -6,9 +6,12 @@ public class EnemyShootingBehaviour :MonoBehaviour, IShootBullet
 {
     public BulletSpanwer bulletSpawner;
     public Transform spawnPoint;
-   // public GameObject bulletPrefab;
+    // public GameObject bulletPrefab;
 
-
+    private void Update()
+    {
+        
+    }
     public void ShootBullet()
     {
         bulletSpawner.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet);

@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerTankView : MonoBehaviour,IGetComponentsInAwake
+using UnityEngine.UI;
+public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
 {
     public PlayerTankController tankController;
 
@@ -18,11 +18,18 @@ public class PlayerTankView : MonoBehaviour,IGetComponentsInAwake
     public Transform spawnPoint;
 
     public PlayerShootingBehaviour shootingBehaviour;
+
+    public Image image;
     private void Awake()
     {
         GetComponenetsInAwake();
     }
 
+
+    public void ChangeColor(Color color)
+    {
+
+    }
     public void GetComponenetsInAwake()
     {
         bulletSpawner = GameObject.Find("BulletSpawner").GetComponent<BulletSpanwer>();

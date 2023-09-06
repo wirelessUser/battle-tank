@@ -9,6 +9,7 @@ public class PlayerTankController
     public PlayerTankView view;
     public Rigidbody rb;
 
+    
     public void PlayerTankControllerSetting(PlayerTankModel _model, PlayerTankView _view)
     {
        // Debug.Log("Inside the **PlayerTankControllerSetting ");
@@ -35,6 +36,8 @@ public class PlayerTankController
 
     public  void Move(float moveDir)
     {
+  
+
         //Debug.Log($"model.movementSpeed{movementSpeed}");
         // rb.velocity = view.transform.forward * moveDir * model.movementSpeed;
         rb.velocity = view.transform.forward * moveDir *500;
