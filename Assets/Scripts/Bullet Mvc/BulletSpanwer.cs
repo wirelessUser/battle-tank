@@ -6,16 +6,28 @@ public class BulletSpanwer : MonoBehaviour
 {
 
    
-    public BulletView view;
+    public GameObject[] view;
 
-    public  void SpawnBullet(Transform spawnPoint,GameObject bulletPrefab)
+    public  void SpawnBullet(Transform spawnPoint, BulletEnum bulletType)
     {
-            GameObject bulletSpawned= GameObject.Instantiate(bulletPrefab);
+        GameObject bulletSpawned = null;
+        if (bulletType == BulletEnum.PlayerBullet)
+        {
+             bulletSpawned = GameObject.Instantiate(view[(int)bulletType]);
+        }
+        else if (bulletType == BulletEnum.EnemyBullet)
+        {
+           // Debug.Log("Creating Enemy Bullet");
+             bulletSpawned = GameObject.Instantiate(view[(int)bulletType]);
+            
+        }
+          
         bulletSpawned.transform.localPosition = spawnPoint.position;
         bulletSpawned.transform.localRotation = spawnPoint.rotation;
-        bulletSpawned.GetComponent<Rigidbody>().AddForce((spawnPoint.forward * 2000), ForceMode.Force);
+        float speed = bulletSpawned.GetComponent<BulletView>().bulletSo.speed;
+        bulletSpawned.GetComponent<Rigidbody>().AddForce((spawnPoint.forward * speed), ForceMode.Force);
 
     }
-
    
+
 }

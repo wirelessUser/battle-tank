@@ -8,7 +8,7 @@ public class BulletView : MonoBehaviour, IBulletSpawn, IDestroyObject
 
     public BulletScriptable bulletSo;
     public Rigidbody rb;
-
+   
 
     private void Start()
     {
@@ -24,6 +24,33 @@ public class BulletView : MonoBehaviour, IBulletSpawn, IDestroyObject
     {
         controller = _controller;
     }
+
+ 
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (this.bulletSo.bulletType == BulletEnum.EnemyBullet)
+        {
+           // Debug.Log("Destroing Bullet...Enemy");
+            if (collision.gameObject.GetComponent<PlayerTankView>() != false )
+            {
+                collision.gameObject.GetComponent<PlayerHealth>().DecreaseHealth(10);
+                Destroy(this.gameObject);
+            }
+        }
+       
+
+        if (this.bulletSo.bulletType == BulletEnum.PlayerBullet)
+        {
+          //  Debug.Log("Destroing Bullet...Player");
+            if (collision.gameObject.GetComponent<EnemyView>() != false)
+            {
+                Destroy(this.gameObject);
+
+            }
+        }
+    }
+  
 
     public void SpawnBullet(Transform spawnPoint)
     {

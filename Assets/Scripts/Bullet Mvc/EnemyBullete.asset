@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32d8947547fc9a4e8580231f7eb0b49, type: 3}
   m_Name: EnemyBullete
   m_EditorClassIdentifier: 
+  bulletType: 1
   BulleteName: EnemyBullete
   speed: 20
   damageCapacity: 30

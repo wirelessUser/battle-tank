@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController
+public class EnemyController 
 {
     public EnemyView view;
     public EnemyModel model;
@@ -21,7 +21,7 @@ public class EnemyController
 
     }
 
-
+  
 
     public void InstantiateEnemies(List<EnemyView>  enemyprefbas,Transform[] spawnePoints)
     {
@@ -87,4 +87,6 @@ public class EnemyController
         return enemyprefbas[randomPos];
 
     }
+
+
 }
