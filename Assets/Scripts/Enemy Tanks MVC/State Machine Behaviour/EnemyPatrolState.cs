@@ -16,7 +16,6 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
 
     public float currentChaseDistance;
     public float patrolSpeed;
-    // public Color _color;
     private Transform cubeLocator;
     public override void OnEnemyEnterState()
     {
@@ -45,18 +44,12 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
 
         Debug.Log($"Setting new dstsination Points");
         float randomRadius = Random.Range(PatrolMinRadius, patrolMaxradius);
-        //Debug.Log($"randomRadius = {randomRadius}");
         Vector3 dir = Random.insideUnitSphere;
-        // Debug.Log($"dir = {dir}");
         dir *= (randomRadius);
-        // Debug.Log($"dir2 = {dir}");
-        // dir += transform.position;
-        //Debug.Log($"dir3 = {dir}");
         NavMeshHit hit;
 
         NavMesh.SamplePosition(dir, out hit, randomRadius, -1);
         Debug.Log($"hit = {hit.position}");
-        // Debug.Log($"hit/2 = {hit.position/2}");
         cubeLocator.transform.position = hit.position;
         navMeshAgent.SetDestination(hit.position);
 
@@ -66,7 +59,6 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
     {
         patrolTimer = idlePatrolTime;
         currentChaseDistance = chasingDistance;
-       // attackTimer = idleAttackTimeGap;
     }
 
 
