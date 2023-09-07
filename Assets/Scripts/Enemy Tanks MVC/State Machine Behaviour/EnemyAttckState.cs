@@ -7,8 +7,7 @@ public class EnemyAttckState : EnemyTankStates, IGetComponentsInAwake, Iinitiali
 {
     public float attackTimer;
     public float idleAttackTimeGap = 5;
-   // public Color _color;
-    // public float attackDistance;
+  
     public EnemyShootingBehaviour enemyShootingBehaviour;
 
     private BulletSpanwer bulletSpawner;
@@ -49,10 +48,9 @@ public class EnemyAttckState : EnemyTankStates, IGetComponentsInAwake, Iinitiali
             attackTimer = 0;
 
         }
-        // Debug.Log($"From Attack** Distace B/W = {Vector3.Distance(transform.position, playerTarget.position)}");
         if (Vector3.Distance(transform.position, playerTransform.position) >= attackDistance + 10)
         {
-            // Debug.Log($"From Attack** Distace B/W = {Vector3.Distance(transform.position, playerTarget.position)}");
+          
             enemyview.ChangeEnemyState(enemyview.chasingState );
         }
 
@@ -62,19 +60,14 @@ public class EnemyAttckState : EnemyTankStates, IGetComponentsInAwake, Iinitiali
     {
         transform.LookAt(playerTransform);
 
-        //  Debug.Log($"********Shotting************");
       //  enemyShootingBehaviour.ShootBullet();
     }
 
     public new void GetComponenetsInAwake()
     {
-       // enemyview = GetComponent<EnemyView>();
-       /// playerTarget = FindObjectOfType<PlayerTankView>();
         bulletSpawner = GameObject.FindWithTag("BulletSpawner").GetComponent<BulletSpanwer>();
-      //  navMeshAgent = GetComponent<NavMeshAgent>();
        
 
-        //tankView = GetComponent<EnemyView>();
     }
 
 
