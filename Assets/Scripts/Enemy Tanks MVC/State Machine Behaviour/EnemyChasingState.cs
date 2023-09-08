@@ -12,7 +12,6 @@ public class EnemyChasingState : EnemyTankStates, IGetComponentsInAwake, Iinitia
     public float chasingDistance;
 
     public float currentChaseDistance;
-    // public Color _color;
     public float patrolSpeed;
     public override void OnEnemyEnterState()
     {
@@ -38,7 +37,6 @@ public class EnemyChasingState : EnemyTankStates, IGetComponentsInAwake, Iinitia
         navMeshAgent.isStopped = false;
         navMeshAgent.speed = chaseSpeed;
         navMeshAgent.SetDestination(playerTransform.position);
-        //ChekDistanceToChaseOrAttack(attackDistance,EnemyStates.Attack);
         if (Vector3.Distance(transform.position, playerTransform.position) <= attackDistance)
         {
             enemyview.ChangeEnemyState(enemyview.attackState); 
@@ -50,14 +48,11 @@ public class EnemyChasingState : EnemyTankStates, IGetComponentsInAwake, Iinitia
         else if (Vector3.Distance(transform.position, playerTransform.position) > chasingDistance)
         {
             enemyview.ChangeEnemyState(enemyview.patrollingState);
-           // enemyStates = EnemyStates.Patrol;
             navMeshAgent.speed = patrolSpeed;
-            // reset patrol timer If it containsa Some differnt valu before going to The chase state..patrolTimer = idlePatrolTime;
             if (chasingDistance != currentChaseDistance)
             {
                 chasingDistance = currentChaseDistance;
             }
         }
-        //  Debug.Log($"From Chase** Distace B/W = {Vector3.Distance(transform.position, playerTarget.position)}");
     }
 }
