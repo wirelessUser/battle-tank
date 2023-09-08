@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth : MonoBehaviour,ITakeDamage
 {
     public GameObject explosionPrefab;
     [Range(10, 100)]
@@ -61,14 +61,14 @@ public class EnemyHealth : MonoBehaviour
     }
 
 
-    public void DecreaseHealth(float amount)
+
+    public void TakeDamage( float damageAmount)
     {
         if (currentHealth <= 0)
         {
             Death();
 
         }
-        currentHealth -= amount;
-
+        currentHealth -= damageAmount;
     }
 }

@@ -445,7 +445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalInput: 0
   verticleInput: 0
-  dataSo: {fileID: 11400000, guid: 33f106d8db38bbd4397e6df413ecdf98, type: 2}
+  dataSo: {fileID: 11400000, guid: 0c73298498abe0740adc56f26c5dcd41, type: 2}
   mainCam: {fileID: 0}
   rb: {fileID: -2430727540742116032}
   bulletSpawner: {fileID: 2406674086267379875, guid: 8e68e04947fd93d4e83f27dac617d238,
@@ -469,6 +469,7 @@ MonoBehaviour:
     type: 3}
   bulletSpawner: {fileID: 2406674086267379875, guid: 8e68e04947fd93d4e83f27dac617d238,
     type: 3}
+  playerRef: {fileID: 1753715888}
 --- !u!114 &-3065484967352945226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,7 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 151086, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}
-  maxHealth: 19.1
+  maxHealth: 33.1
   currentHealth: 0
 --- !u!1 &5170878431976608314
 GameObject:

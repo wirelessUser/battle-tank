@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ParticleSystemJobs;
-public class PlayerHealth :MonoBehaviour
+public class PlayerHealth :MonoBehaviour,ITakeDamage
 {
-    public delegate void playerDestrucionChainHandler();
+    public  delegate void playerDestrucionChainHandler();
 
-    public event playerDestrucionChainHandler DestroyAll;
+    public   event playerDestrucionChainHandler DestroyAll;
   
 
     public GameObject explosionPrefab;
@@ -25,7 +25,7 @@ public class PlayerHealth :MonoBehaviour
     public void NotifyEnemyandEnvironmentDestruction()
     {
 
-        DestroyAll?.Invoke();  //?== null-conditional operator
+        DestroyAll?.Invoke();  
         
     }
 
@@ -58,14 +58,15 @@ public class PlayerHealth :MonoBehaviour
     }
 
 
-    public void DecreaseHealth(float amount)
+  
+
+    public void TakeDamage(float damageAmount)
     {
-        if  (currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             Death();
 
         }
-        currentHealth -= amount;
-
+        currentHealth -= damageAmount;
     }
 }

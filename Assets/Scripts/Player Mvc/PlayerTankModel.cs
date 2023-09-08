@@ -18,11 +18,11 @@ public class PlayerTankModel
     {
         tankController = _tankController;
     }
-    public void SetPlayerTankModel(PlayerScriptableData data)
+    public void SetPlayerTankModel(PlayerScriptableObject data)
     {
        
         name = data.name;
-        //Debug.Log($"name{name}");
+        
         health = data.health;
         currentHealth = health;
         damage = data.damage;

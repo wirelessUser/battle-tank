@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb6ff307e8466544295427151af93cda, type: 3}
-  m_Name: PlayerMainTank
+  m_Name: MainPlayer
   m_EditorClassIdentifier: 
-  playerName: MainTank
-  health: 200
-  damage: 40
-  movementSpeed: 30
-  rotationSpeed: 50
+  playerName: Main Player
+  tankType: 0
+  health: 100
+  damage: 20
+  movementSpeed: 40

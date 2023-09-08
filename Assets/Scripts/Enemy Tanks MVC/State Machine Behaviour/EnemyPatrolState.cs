@@ -16,26 +16,27 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
 
     public float currentChaseDistance;
     public float patrolSpeed;
+    // public Color _color;
     private Transform cubeLocator;
     public override void OnEnemyEnterState()
     {
         InitializeVariables();
         base.OnEnemyEnterState();
         enemyview.ChangeColor(color);
-       cubeLocator = GameObject.Find("Cube").GetComponent<Transform>();
+        cubeLocator = GameObject.Find("Cube").GetComponent<Transform>();
 
     }
 
     public override void OnEnemyExitState()
     {
         base.OnEnemyExitState();
-        
+
     }
 
     public override void Update()
     {
         base.Update();
-      
+
         Patrol();
     }
 
@@ -44,12 +45,16 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
 
         Debug.Log($"Setting new dstsination Points");
         float randomRadius = Random.Range(PatrolMinRadius, patrolMaxradius);
+        
         Vector3 dir = Random.insideUnitSphere;
+     
         dir *= (randomRadius);
+       
         NavMeshHit hit;
 
         NavMesh.SamplePosition(dir, out hit, randomRadius, -1);
         Debug.Log($"hit = {hit.position}");
+      
         cubeLocator.transform.position = hit.position;
         navMeshAgent.SetDestination(hit.position);
 
@@ -59,6 +64,7 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
     {
         patrolTimer = idlePatrolTime;
         currentChaseDistance = chasingDistance;
+  
     }
 
 
@@ -66,7 +72,7 @@ public class EnemyPatrolState : EnemyTankStates, IGetComponentsInAwake, Iinitial
     {
         if (Vector3.Distance(transform.position, playerTransform.position) <= distance)
         {
-             enemyview.ChangeEnemyState(enemyview.chasingState); 
+            enemyview.ChangeEnemyState(enemyview.chasingState);
         }
     }
 

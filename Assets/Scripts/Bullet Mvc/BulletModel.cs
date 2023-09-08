@@ -6,7 +6,7 @@ public class BulletModel
 {
     private  BulletEnum bulletType;
 
-    private BulletScriptable data;
+    private BulletScriptableObject data;
 
     private BulletController controller;
 
@@ -16,7 +16,7 @@ public class BulletModel
     public int damageCapacity { get; set; }
 
 
-    public BulletModel(BulletScriptable data)
+    public BulletModel(BulletScriptableObject data)
     {
         bulleteName = data.BulleteName;
         speed = data.speed;
