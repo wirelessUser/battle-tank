@@ -5,34 +5,41 @@ using UnityEngine;
 public class DestroySurrounding : MonoBehaviour
 {
     public GameObject floor;
-   // public PlayerHealth playerRef;
 
 
-    private void Start()
+    public PlayerHealth playerRef;
+
+    private void Awake()
     {
-        // playerRef = FindFirstObjectByType<PlayerHealth>();
+        playerRef = PlayerTankSpawner.Instance.ReturnPlayerHealth();
+        //*Problem---This surrounding script attached to the Environment which is
+        // Already present in the scene ,But player is Created at runtime,So here the awake will get called first and at tat time player will not be created
+        //in the scene ,So how can resolve that problem?  ** Do i have to change the script Execution Order ? Or is thre any other Best Solution for that ?
     }
+
+
     private void OnEnable()
     {
-        PlayerHealth playerRef = FindFirstObjectByType<PlayerHealth>();
+      
         if (playerRef.gameObject != null)
         {
             playerRef.DestroyAll += DestroyFloor;
+            //playerRef.DestroyAll = null;
         }
     }
 
 
-   
 
 
-        private void OnDisable()
-    {
-       PlayerHealth playerRef = FindFirstObjectByType<PlayerHealth>();
+
+    private void OnDisable()
+     {
+      
         if (playerRef.gameObject != null)
         {
             playerRef.DestroyAll -= DestroyFloor;
         }
-    }
+     }
 
  
 
