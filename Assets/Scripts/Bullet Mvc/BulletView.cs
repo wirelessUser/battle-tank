@@ -6,10 +6,20 @@ public class BulletView : MonoBehaviour, IBulletSpawn, IDestroyObject
 {
     public BulletController controller;
 
-    public BulletScriptable bulletSo;
+    public BulletScriptableObject bulletSo;
     public Rigidbody rb;
-   
 
+    public GameObject owner;
+  
+
+
+    public void SetOwner(GameObject _owner)  //## i am checking collsion isnde the bulletView script (if any obejct implements ITakedamge() interface
+                                             //then bullet will give damage to it ,But i want to make sure that Bulet dont give damage to it's Spanwer(Player Or Enemy).
+                                             // So i am Setting the reference of the Spaener  here from the BulletSpawenr Script.
+    {
+        owner = _owner;
+
+    }
     private void Start()
     {
         StartCoroutine(Destroy(5));
@@ -29,26 +39,14 @@ public class BulletView : MonoBehaviour, IBulletSpawn, IDestroyObject
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (this.bulletSo.bulletType == BulletEnum.EnemyBullet)
+      
+       if(collision.TryGetComponent<ITakeDamage>(out var damage)&& collision.gameObject != owner)
         {
-           // Debug.Log("Destroing Bullet...Enemy");
-            if (collision.gameObject.GetComponent<PlayerTankView>() != false )
-            {
-                collision.gameObject.GetComponent<PlayerHealth>().DecreaseHealth(10);
-                Destroy(this.gameObject);
-            }
+           
+            damage.TakeDamage(10);
         }
+
        
-
-        if (this.bulletSo.bulletType == BulletEnum.PlayerBullet)
-        {
-          //  Debug.Log("Destroing Bullet...Player");
-            if (collision.gameObject.GetComponent<EnemyView>() != false)
-            {
-                Destroy(this.gameObject);
-
-            }
-        }
     }
   
 

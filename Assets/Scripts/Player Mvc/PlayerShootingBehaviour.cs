@@ -17,7 +17,7 @@ public class PlayerShootingBehaviour : MonoBehaviour,IShootBullet
     public  void ShootBullet()
     {
         if(playerRef!=null)
-        bulletSpawner.SpawnBullet(spawnPoint,BulletEnum.PlayerBullet);
+        bulletSpawner.SpawnBullet(spawnPoint,BulletEnum.PlayerBullet,this.gameObject);
       
     }
 }

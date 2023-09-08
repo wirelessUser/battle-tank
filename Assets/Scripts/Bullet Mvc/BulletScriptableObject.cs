@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName ="BulletScriptable",menuName = "BulletScriptable/BulletType")]
-public class BulletScriptable : ScriptableObject
+public class BulletScriptableObject : ScriptableObject
 {
     public BulletEnum bulletType;
     public string BulleteName;

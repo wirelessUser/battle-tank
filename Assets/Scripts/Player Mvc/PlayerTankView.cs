@@ -9,7 +9,7 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
     public float horizontalInput;
     public float verticleInput;
 
-    public PlayerScriptableData dataSo;
+    public PlayerScriptableObject dataSo;
     public CameraFollow mainCam;
     public Rigidbody rb;
 
@@ -19,7 +19,7 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
 
     public PlayerShootingBehaviour shootingBehaviour;
 
-    public Image image;
+  
     private void Awake()
     {
         GetComponenetsInAwake();
@@ -39,8 +39,8 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
     private void Update()
     {
         TakeInput();
-        tankController.Move(horizontalInput); // Call Move with horizontalInput
-
+       // tankController.Move(horizontalInput); // Call Move with horizontalInput
+      //  tankController.Rotation(verticleInput);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -61,12 +61,12 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
         horizontalInput = Input.GetAxis("Horizontal1");
         verticleInput = Input.GetAxis("Vertical1");
 
-       rb.velocity = transform.forward * verticleInput * 50;// Player Movement Left Right (Currently I am FAcing Issue Becuase i have wrote this
-                                                      // Code in the Contolelr But from there it is not moving and i am not able to figure out why ?...
+        rb.velocity = transform.forward * verticleInput * 50;// Player Movement Left Right (Currently I am FAcing Issue Becuase i have wrote this
+       // Code in the Contolelr But from there it is not moving and i am not able to figure out why ? ...
 
 
         Quaternion rotationAngle = Quaternion.Euler(new Vector3(0f, horizontalInput, 0f));
-      
+
 
         rb.MoveRotation(rb.rotation * rotationAngle);
     }

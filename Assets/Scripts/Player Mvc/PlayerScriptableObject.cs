@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="EnemyTank",menuName ="EnemyTank/TankType")]
-public class EnemyDataScriptable : ScriptableObject
-{
 
+[CreateAssetMenu(fileName ="ScriptableObjects",menuName = "ScriptableObjects/playerTank")]
+public class PlayerScriptableObject : ScriptableObject
+{
     public string playerName;
-    public EnemyTankType tankType;
+    public PlayerTankType tankType;
     public int health;
     public float damage;
     public float movementSpeed;
-    public float rotationSpeed;
+    
 }

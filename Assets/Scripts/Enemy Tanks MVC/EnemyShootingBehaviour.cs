@@ -14,7 +14,7 @@ public class EnemyShootingBehaviour :MonoBehaviour, IShootBullet
     }
     public void ShootBullet()
     {
-        bulletSpawner.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet);
+        bulletSpawner.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet,this.gameObject);
     }
 
 }

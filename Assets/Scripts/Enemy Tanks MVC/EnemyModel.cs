@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyModel 
 {
     public EnemyController enemyController;
-    public EnemyDataScriptable so;
+    public EnemyDataScriptableObject so;
     public string tankName { get; private set; }
 
     public int maxHealth { get; private set; }
@@ -17,7 +17,7 @@ public class EnemyModel
     public float movementSpeed { get; private set; }
 
 
-    public void SetModel(EnemyDataScriptable data)
+    public void SetModel(EnemyDataScriptableObject data)
     {
         tankName = data.name;
         maxHealth = data.health;
