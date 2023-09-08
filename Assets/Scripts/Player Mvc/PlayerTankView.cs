@@ -92,4 +92,10 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
     }
 
 
+
+    public void InitializePlayer()
+    {
+
+    }
+
 }
