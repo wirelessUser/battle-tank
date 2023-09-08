@@ -14,7 +14,8 @@ public class test : MonoBehaviour
     private void Awake()
     {
 
-        go = new List<GameObject>();
+      //  go = new List<GameObject>();
+
     }
 
     private void Start()
@@ -39,4 +40,7 @@ public class test : MonoBehaviour
 
     //    Debug.Log("Coroutine finished");
     //}
+
+
+
 }
