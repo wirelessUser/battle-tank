@@ -9,6 +9,12 @@ public class DestroySurrounding : MonoBehaviour
 
     public PlayerHealth playerRef;
 
+
+
+    public void InitialzePlayer(PlayerTankView  playerview)
+    {
+        playerRef = playerview.GetComponent<PlayerHealth>();
+    }
     private void Awake()
     {
         playerRef = PlayerTankSpawner.Instance.ReturnPlayerHealth();
