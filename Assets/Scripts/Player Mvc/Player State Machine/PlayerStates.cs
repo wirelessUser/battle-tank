@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class PlayerStates : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    protected Color color;
+    protected PlayerScriptableObject playerdatSo;
+
+    private void Awake()
     {
-        
+        playerdatSo = PlayerTankSpawner.Instance.playerDataSo;  
+    }
+    public virtual void OnPlayerEnterState()
+    {
+
+        this.enabled = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void OnPlayerExitState()
     {
-        
+        this.enabled = false;
+    }
+
+    public virtual void Update()
+    {
+
     }
 }

@@ -13,10 +13,14 @@ public class BulletSpanwer : MonoBehaviour
         GameObject bulletSpawned = null;
        
              bulletSpawned = Instantiate(view[(int)bulletType]) ;
+        Debug.Log("Bullet Sapwne Enemy....");
         bulletSpawned.GetComponent<BulletView>().SetOwner(owner);
+
         bulletSpawned.transform.localPosition = spawnPoint.position;
         bulletSpawned.transform.localRotation = spawnPoint.rotation;
+
         float speed = bulletSpawned.GetComponent<BulletView>().bulletSo.speed;
+
         bulletSpawned.GetComponent<Rigidbody>().AddForce((spawnPoint.forward * speed), ForceMode.Force);
 
     }

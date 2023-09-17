@@ -63,14 +63,15 @@ public class EnemyAttckState : EnemyTankStates, IGetComponentsInAwake, Iinitiali
         transform.LookAt(playerTransform);
 
         //  Debug.Log($"********Shotting************");
-      //  enemyShootingBehaviour.ShootBullet();
+        enemyShootingBehaviour.ShootBullet();
     }
 
     public new void GetComponenetsInAwake()
     {
        // enemyview = GetComponent<EnemyView>();
        /// playerTarget = FindObjectOfType<PlayerTankView>();
-        bulletSpawner = GameObject.FindWithTag("BulletSpawner").GetComponent<BulletSpanwer>();
+     // bulletSpawner = GameObject.FindWithTag("BulletSpawner").GetComponent<BulletSpanwer>();
+      //  Debug.Log("Spawning Bullet..");
       //  navMeshAgent = GetComponent<NavMeshAgent>();
        
 

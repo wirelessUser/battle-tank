@@ -8,10 +8,6 @@ public class EnemyShootingBehaviour :MonoBehaviour, IShootBullet
     public Transform spawnPoint;
     // public GameObject bulletPrefab;
 
-    private void Update()
-    {
-        
-    }
     public void ShootBullet()
     {
         bulletSpawner.SpawnBullet(spawnPoint, BulletEnum.EnemyBullet,this.gameObject);

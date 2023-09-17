@@ -27,23 +27,19 @@ public class EnemyHealth : MonoBehaviour,ITakeDamage
 
     private void OnEnable()
     {
-        PlayerHealth playerRef = FindFirstObjectByType<PlayerHealth>();
-        if (playerRef.gameObject != null)
-        {
+      
             Debug.Log("Calling OnEnable() enemy Event.....");
-            playerRef.DestroyAll += Death;
-        }
+            EventManager<PlayerTankSpawner>.Instance.onPlayerDeath += Death;
+        
     }
 
 
     private void OnDisable()
     {
-        PlayerHealth playerRef = FindFirstObjectByType<PlayerHealth>();
-        if (playerRef.gameObject != null)
-        {
+      
             Debug.Log("Calling OnDisable() enemy Event.....");
-            playerRef.DestroyAll -= Death;
-        }
+        PlayerTankSpawner.Instance.onPlayerDeath -= Death;
+        
     }
 
 

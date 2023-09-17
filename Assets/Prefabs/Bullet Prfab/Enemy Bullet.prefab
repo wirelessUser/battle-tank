@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 139945148}
   - component: {fileID: 139945149}
   - component: {fileID: 7905710714743392381}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Enemy Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSo: {fileID: 11400000, guid: e87623d08ce977f49b62492a3e3980d6, type: 2}
   rb: {fileID: 139945149}
+  owner: {fileID: 0}
 --- !u!54 &139945149
 Rigidbody:
   m_ObjectHideFlags: 0

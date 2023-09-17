@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2119818717}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: BulletSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 983365834876652842}
   - component: {fileID: 4550981534593366611}
   - component: {fileID: 4671388880557780740}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 6693949049577963851}
   - component: {fileID: 353758140466061994}
   - component: {fileID: 3595375147224405633}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FP Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 5170878431976902608}
   - component: {fileID: 5170878431973478282}
   - component: {fileID: 5170878431974608202}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: TankTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5170878431976902612}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: TankRenderers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,9 @@ GameObject:
   - component: {fileID: 1753715888}
   - component: {fileID: 2452126956664814004}
   - component: {fileID: -3065484967352945226}
-  m_Layer: 6
+  - component: {fileID: 819691046}
+  - component: {fileID: 819691047}
+  m_Layer: 7
   m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,8 +415,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.7053087, y: 1.8846245, z: 2.183484}
-  m_Center: {x: -0.01793158, y: 0.9204874, z: -0.005977154}
+  m_Size: {x: 1.7053087, y: 3.5654147, z: 2.183484}
+  m_Center: {x: -0.017931547, y: 1.7608829, z: -0.005977154}
 --- !u!54 &-2430727540742116032
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -430,7 +432,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1753715888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,7 +461,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5170878431976608312}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87ccfa65f31cd204ba0c99c139569931, type: 3}
   m_Name: 
@@ -485,6 +487,43 @@ MonoBehaviour:
   explosionPrefab: {fileID: 151086, guid: ee49a9a8678ecf8468eb488e1ac8d42b, type: 3}
   maxHealth: 33.1
   currentHealth: 0
+--- !u!114 &819691046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5170878431976608312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2040da49cfac5c34386c1daf5952cb8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 1, g: 0.033018887, b: 0.033018887, a: 0}
+  horizontalMovement: 0
+  verticalMovement: 0
+  rb: {fileID: -2430727540742116032}
+  moveSpeed: 15
+  rotationSpeed: 55
+--- !u!114 &819691047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5170878431976608312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77f45bf1ce85c6f428905beb23cf548f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
+  spawnPoint: {fileID: 2119818717}
+  bulletPrefab: {fileID: 5222268808196272008, guid: 923ae6cba78833d419b05afe5f9f15af,
+    type: 3}
+  bulletSpawner: {fileID: 2406674086267379875, guid: 8e68e04947fd93d4e83f27dac617d238,
+    type: 3}
+  playerRef: {fileID: 1753715888}
 --- !u!1 &5170878431976608314
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +535,7 @@ GameObject:
   - component: {fileID: 5170878431976902618}
   - component: {fileID: 5170878431973478280}
   - component: {fileID: 5170878431974608200}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: TankChassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +620,7 @@ GameObject:
   - component: {fileID: 5170878431976902620}
   - component: {fileID: 5170878431973478286}
   - component: {fileID: 5170878431974608206}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: TankTracksLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -665,7 +704,7 @@ GameObject:
   - component: {fileID: 5170878431976902622}
   - component: {fileID: 5170878431973478272}
   - component: {fileID: 5170878431974608192}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: TankTracksRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}

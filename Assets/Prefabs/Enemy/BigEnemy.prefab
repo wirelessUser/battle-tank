@@ -373,7 +373,7 @@ MonoBehaviour:
   idlePatrolTime: 20
   chasingDistance: 15
   currentChaseDistance: 15
-  patrolSpeed: 10
+  patrolSpeed: 40
 --- !u!114 &843345639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,7 +415,7 @@ MonoBehaviour:
   chaseAfterAtackDistance: 2
   tankView: {fileID: -7696802979863906250}
   attackTimer: 0
-  idleAttackTimeGap: 5
+  idleAttackTimeGap: 1
   enemyShootingBehaviour: {fileID: 6217432239092033594}
 --- !u!1 &6154418042007927013
 GameObject:

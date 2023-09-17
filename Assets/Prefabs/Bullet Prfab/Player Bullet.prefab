@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 79335617}
   - component: {fileID: 79335618}
   - component: {fileID: 1876631057889458656}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Player Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSo: {fileID: 11400000, guid: 9c084d99cb2cbef45a7d921c54a89055, type: 2}
   rb: {fileID: 79335618}
+  owner: {fileID: 0}
 --- !u!54 &79335618
 Rigidbody:
   m_ObjectHideFlags: 0

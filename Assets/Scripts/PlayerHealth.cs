@@ -4,9 +4,7 @@ using UnityEngine;
 using UnityEngine.ParticleSystemJobs;
 public class PlayerHealth :MonoBehaviour,ITakeDamage
 {
-    public  delegate void playerDestrucionChainHandler();
-
-    public   event playerDestrucionChainHandler DestroyAll;
+  
   
 
     public GameObject explosionPrefab;
@@ -22,24 +20,20 @@ public class PlayerHealth :MonoBehaviour,ITakeDamage
     }
 
 
-    public void NotifyEnemyandEnvironmentDestruction()
-    {
-
-        DestroyAll?.Invoke();  
-        
-    }
+  
 
     public void Death()
     {
-        // Playing Particle effect for the Player  ...
-        ExplosionEffect();
+                                     
+        ExplosionEffect();             // Playing Particle effect for the Player  ...
 
-        // Destroing Enemy &Environment After Destroing the Player...
-        NotifyEnemyandEnvironmentDestruction();
-        // Destroing The Player  After Destroing the Player...
+       
+                   // Destroing Enemy &Environment After Destroing the Player...
+       
         StartCoroutine(PlayerDeath(this.gameObject));
+        PlayerTankSpawner.Instance.PlayerDeathEvent();     // Destroing The Player  After Destroing the Player...
 
-     
+
 
     }
 

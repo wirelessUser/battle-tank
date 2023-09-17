@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerTankSpawner : MonoBehaviour
+public class PlayerTankSpawner : EventManager<PlayerTankSpawner>
 {
     private PlayerHealth playerHealth;
 
     
-    public static PlayerTankSpawner Instance { get; private set; }
+   // public static PlayerTankSpawner Instance { get; private set; }
 
     public PlayerTankView tankView;
-    
 
+    public PlayerScriptableObject playerDataSo;
+
+    private PlayerTankView playerSpawned;
     private void Awake()
     {
 
@@ -47,7 +49,16 @@ public class PlayerTankSpawner : MonoBehaviour
      
         PlayerTankController tankController = new PlayerTankController();
 
-        tankController.PlayerTankControllerSetting(tankModel, tankView);
+        PlayerTankView playerSpawned = Instantiate(tankView, transform.parent);
        
+
+    }
+
+
+
+    public PlayerTankView ReturnView()
+    {
+
+        return playerSpawned;
     }
 }

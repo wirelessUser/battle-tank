@@ -32,20 +32,20 @@ public class PlayerTankView : MonoBehaviour, IGetComponentsInAwake
     }
     public void GetComponenetsInAwake()
     {
-        bulletSpawner = GameObject.Find("BulletSpawner").GetComponent<BulletSpanwer>();
+       // bulletSpawner = GameObject.Find("BulletSpawner").GetComponent<BulletSpanwer>();
         mainCam = GameObject.Find("Main Camera").GetComponent<CameraFollow>();
         mainCam.CameraSetup(this);
     }
     private void Update()
     {
-        TakeInput();
+      //  TakeInput();
        // tankController.Move(horizontalInput); // Call Move with horizontalInput
       //  tankController.Rotation(verticleInput);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            FireBullet();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    FireBullet();
+        //}
     }
 
     public void SetController(PlayerTankController _tankController)     // Controller is Seeting those value So tankController of TankView can Be Initilaized.
